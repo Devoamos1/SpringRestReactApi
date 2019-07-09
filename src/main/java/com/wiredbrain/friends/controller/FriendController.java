@@ -1,5 +1,6 @@
 package com.wiredbrain.friends.controller;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -42,7 +43,7 @@ public class FriendController {
 			return friendService.save(friend);
 	
 	}
-	
+    
 	public
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
@@ -52,7 +53,7 @@ public class FriendController {
 	
 		return fieldErrorMessages;
 	}
-
+	//GET
 	public
 	@GetMapping("/friend")
 	Iterable<Friend> read(){

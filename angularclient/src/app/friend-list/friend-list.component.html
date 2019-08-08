@@ -1,0 +1,19 @@
+<p>friend-list works!</p>
+
+<h2>My Friends List</h2>
+
+<div *ngFor= "let friend of friends">
+  {{friend.first-name}}
+</div>
+
+<mat-card>
+    <mat-card-title>Friend List</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let friend of friends">
+          <img mat-list-avatar src="{{friend.giphyUrl}}" alt="{{friend.first_name}}">
+          <h3 mat-line>{{friend.first_name}}</h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>

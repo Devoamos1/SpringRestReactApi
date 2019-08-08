@@ -29,6 +29,10 @@ import com.wiredbrain.friends.services.FriendService;
 import com.wiredbrain.friends.util.ErrorMessage;
 import com.wiredbrain.friends.util.FieldErrorMessage;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
+
 //Create a rest controller
 @RestController
 public class FriendController {
@@ -37,6 +41,15 @@ public class FriendController {
 	FriendService friendService;
 	
 	//Generate REST CRUD operation Methods 
+	
+	//GET
+	public
+	@GetMapping("/friend")
+	@CrossOrigin(origins = "http://localhost:4200")
+	Iterable<Friend> read(){
+		return friendService.findAll();
+	}
+	
 	public
 	@PostMapping("/friend")
 	Friend create (@Valid @RequestBody Friend friend) {
@@ -53,12 +66,7 @@ public class FriendController {
 	
 		return fieldErrorMessages;
 	}
-	//GET
-	public
-	@GetMapping("/friend")
-	Iterable<Friend> read(){
-		return friendService.findAll();
-	}
+
 	
 	//Update only existing friends (Local method)
 	@PutMapping("/friend")
